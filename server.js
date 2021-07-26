@@ -3,6 +3,7 @@
 //___________________
 const express = require('express');
 const methodOverride  = require('method-override');
+const session = require('express-session')
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
@@ -36,13 +37,39 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+// sessions
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
+// authentication
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
+// Controlers -----------------------------
+// Controllers
+const productsController = require('./controllers/main.js')
+app.use('/main', productsController)
+const userController = require('./controllers/users.js')
+app.use('/users', userController)
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController)
+//------------------------------------------
+
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World! Testing');
-});
+app.get('/', (req, res) => {
+    res.redirect('/main')
+})
 //___________________
 //Listener
 //___________________
