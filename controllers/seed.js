@@ -1,6 +1,6 @@
 const express = require('express')
 const Post = require('../models/post.js')
-const router = express.Router()
+const seed = express.Router()
 
 // SEED ROUTE
 seed.get('/setup/', (req, res) => {
