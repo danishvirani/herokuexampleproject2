@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Post = require('../models/post.js')
+const User = require('../models/users.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -21,4 +22,12 @@ router.get('/', (req, res) => {
         currentUser: req.session.currentUser}
       )
   })
+})
+
+router.get('/new', (req, res)=>{
+    User.find({}, (err, allUsers)=>{
+        res.render('main/new.ejs', {
+            users: allUsers
+        })
+    })
 })

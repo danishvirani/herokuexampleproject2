@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const User = require('../models/users.js')
 
 const postSchema = new Schema(
   {
@@ -20,7 +21,13 @@ const postSchema = new Schema(
     nature: {type: Boolean},
     adventure: {type: Boolean},
     travel: {type: Boolean},
-  }, { timestamps: true }
+    comments: [{body: String, date: Date.now}],
+    date: { type: Date, default: Date.now },
+    likes: {type: Number},
+  },
+  { timestamps: true },
+
+
 )
 
 const Post = mongoose.model('Post', postSchema)

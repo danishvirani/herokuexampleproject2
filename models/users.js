@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Post = require('./post.js')
 const { isStrongPassword } = require('validator')
 
 const userSchema = new Schema(
@@ -23,7 +24,9 @@ const userSchema = new Schema(
       nature: {type: Boolean},
       adventure: {type: Boolean},
       travel: {type: Boolean},
-    
+
+      posts: [Post.schema]
+
   }
 )
 

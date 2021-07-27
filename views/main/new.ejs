@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <%- include ('../partials/head.ejs') %>
+
+  </head>
+  <body>
+    <!-- -------------- Banner & Nav --------------- -->
+
+    <%- include ('../partials/hero.ejs') %>
+    <%- include ('../partials/nav.ejs') %>
+
+
+    <!-- ------------------ Main -------------------- -->
+
+  <div class="container text-center justify-content-center">
+  <div class="card">
+
+    <div class="card-header">
+      <h3>Share a New Experience</h3>
+    </div>
+    <div class="card-body">
+    <form action="/main" method="post">
+
+      <div class='form-group'>
+      <label>Title: </label>
+      <input type="text" name="title" /><br/>
+      <label>Picture: </label>
+      <input type="text" name="picture" /><br/>
+      <label>Description: </label>
+      <textarea name="description"></textarea><br/>
+      <input type="hidden" name="author" value='currentUser'/><br/>
+
+      <label>Tags: </label>
+            <input type='checkbox' name='creativity'>
+            <input type='checkbox' name='lifestyle'>
+            <input type='checkbox' name='nature'>
+            <input type='checkbox' name='adventure'>
+            <input type='checkbox' name='travel'>
+      <input type='hidden' name='likes' value='0'>
+      <input type="submit" value="Post"/>
+      </div>
+
+    </form>
+
+  </div>
+  </div>
+  </div>
+
+
+  </body>
+</html>
