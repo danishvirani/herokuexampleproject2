@@ -17,13 +17,13 @@ const userSchema = new Schema(
     profilePicture: {
       type: String
     },
-    interests: {
+
       creativity: {type: Boolean},
       lifestyle: {type: Boolean},
       nature: {type: Boolean},
       adventure: {type: Boolean},
       travel: {type: Boolean},
-    }
+    
   }
 )
 
