@@ -1,9 +1,9 @@
 const express = require('express')
-const Post = require('../models/post.js')
 const seed = express.Router()
+const Post = require('../models/post.js')
 
 // SEED ROUTE
-seed.get('/setup/', (req, res) => {
+seed.get('/setup', (req, res) => {
   Post.create(
     [
       {

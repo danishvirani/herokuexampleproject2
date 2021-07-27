@@ -55,8 +55,8 @@ const isAuthenticated = (req, res, next) => {
 }
 // Controlers -----------------------------
 // Controllers
-const productsController = require('./controllers/main.js')
-app.use('/main', productsController)
+const mainController = require('./controllers/main.js')
+app.use('/main', mainController)
 const userController = require('./controllers/users.js')
 app.use('/users', userController)
 const sessionsController = require('./controllers/sessions.js')
