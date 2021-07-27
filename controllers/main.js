@@ -35,7 +35,7 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', (req, res)=>{
-    User.find({username: currentUser}, (err, foundUser)=>{
+    User.find({username: req.session.currentUser}, (err, foundUser)=>{
         Post.create(req.body, (err, createdPost)=>{
             foundUser.posts.push(createdPost)
             foundUser.save((err, data)=>{
