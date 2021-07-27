@@ -8,9 +8,50 @@
   <body>
     <!-- -------------- Banner & Nav --------------- -->
 
+    <%- include ('../partials/hero.ejs') %>
     <%- include ('../partials/nav.ejs') %>
 
+
     <!-- ------------------ Main -------------------- -->
-    <h1>Hello World</h1>
+
+    <div class="container">
+      <% for(let i = 0; i < posts.length; i++){ %>
+          <div class='card text-center col-md-3 mb-4'>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='150em' height='150em'>
+            </div>
+            <div class='card-footer'>
+              <b>Author:</b> <%=posts[i].author%> <br/>
+              <b>Description:</b> <%=posts[i].description%><br/>
+
+              <b>Tags:</b>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    Creativity
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    Lifestyle
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    Nature
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    Adventure
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    Travel
+                  <% } %>
+                  
+                </p>
+              </div>
+          </div>
+      <% } %>
+    </div>
+
   </body>
 </html>
