@@ -26,13 +26,13 @@
               <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='150em' height='150em'><br/><br/>
 
 
-              <b>Author:</b> <%=posts[i].author%> <br/><br/>
-              <b>Description:</b> <%=posts[i].description%><br/>
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
 
               </div>
 
               <div class='card-footer'>
-              <b>Tags:</b>
+              <p class="fw-bold">Tags:</p>
                 <p>
                   <% if (posts[i].creativity === true) { %>
                     <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
