@@ -35,11 +35,11 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', (req, res)=>{
-  console.log(createdPost)
-  console.log(foundUser)
   console.log(req.session.currentUser)
     User.find({username: req.session.currentUser}, (err, foundUser)=>{
+      console.log(foundUser)
         Post.create(req.body, (err, createdPost)=>{
+          console.log(createdPost)
             // foundUser.posts.push(createdPost)
             // foundUser.save((err, data)=>{
                 res.redirect('/main')
