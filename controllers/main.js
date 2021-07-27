@@ -66,10 +66,10 @@ router.post('/', (req, res)=>{
         }
         Post.create(req.body, (err, createdPost)=>{
           console.log(createdPost)
-            // foundUser.posts.push(createdPost)
-            // foundUser.save((err, data)=>{
+            foundUser.posts.push(createdPost)
+            foundUser.save((err, data)=>{
                 res.redirect('/main')
-            // })
+            })
         })
     })
 })
