@@ -54,3 +54,7 @@ h1 {
   padding-left: 10%;
   padding-right: 10%;
 }
+.badge-pill:hover {
+  color: white;
+  background-color: rgb(31,60,117);
+}
