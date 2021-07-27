@@ -28,7 +28,8 @@ router.get('/new', (req, res)=>{
     User.find({}, (err, allUsers)=>{
         res.render('main/new.ejs', {
             users: allUsers,
-            tabTitle: 'New Post'
+            tabTitle: 'New Post',
+            currentUser: req.session.currentUser
         })
     })
 })
