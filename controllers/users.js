@@ -19,30 +19,30 @@ users.get('/new', (req, res) => {
 users.post('/', (req, res) => {
   console.log(req.body)
 
-  if(req.body.interests.creativity === 'on') {
-    req.body.interests.creativity = true
+  if(req.body.creativity === 'on') {
+    req.body.creativity = true
   } else {
-    req.body.interests.creativity = false
+    req.body.creativity = false
   }
-  if(req.body.interests.lifestyle === 'on') {
-    req.body.interests.lifestyle = true
+  if(req.body.lifestyle === 'on') {
+    req.body.lifestyle = true
   } else {
-    req.body.interests.lifestyle = false
+    req.body.lifestyle = false
   }
-  if(req.body.interests.nature === 'on') {
-    req.body.interests.nature = true
+  if(req.body.nature === 'on') {
+    req.body.nature = true
   } else {
-    req.body.interests.nature = false
+    req.body.nature = false
   }
-  if(req.body.interests.adventure === 'on') {
-    req.body.interests.adventure = true
+  if(req.body.adventure === 'on') {
+    req.body.adventure = true
   } else {
-    req.body.interests.adventure = false
+    req.body.adventure = false
   }
-  if(req.body.interests.travel === 'on') {
-    req.body.interests.travel = true
+  if(req.body.travel === 'on') {
+    req.body.travel = true
   } else {
-    req.body.interests.travel = false
+    req.body.travel = false
   }
 
 

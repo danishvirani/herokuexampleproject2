@@ -18,11 +18,11 @@ const userSchema = new Schema(
       type: String
     },
     interests: {
-      creativity: Boolean,
-      lifestyle: Boolean,
-      nature: Boolean,
-      adventure: Boolean,
-      travel: Boolean,
+      creativity: {type: Boolean},
+      lifestyle: {type: Boolean},
+      nature: {type: Boolean},
+      adventure: {type: Boolean},
+      travel: {type: Boolean},
     }
   }
 )
