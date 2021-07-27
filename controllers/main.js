@@ -39,6 +39,31 @@ router.post('/', (req, res)=>{
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
       console.log(foundUser)
         console.log(req.body)
+        if(req.body.creativity === 'on') {
+          req.body.creativity = true
+        } else {
+          req.body.creativity = false
+        }
+        if(req.body.lifestyle === 'on') {
+          req.body.lifestyle = true
+        } else {
+          req.body.lifestyle = false
+        }
+        if(req.body.nature === 'on') {
+          req.body.nature = true
+        } else {
+          req.body.nature = false
+        }
+        if(req.body.adventure === 'on') {
+          req.body.adventure = true
+        } else {
+          req.body.adventure = false
+        }
+        if(req.body.travel === 'on') {
+          req.body.travel = true
+        } else {
+          req.body.travel = false
+        }
         Post.create(req.body, (err, createdPost)=>{
           console.log(createdPost)
             // foundUser.posts.push(createdPost)
