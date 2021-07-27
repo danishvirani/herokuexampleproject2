@@ -35,7 +35,7 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', (req, res)=>{
-  console.log(req.session.currentUser)
+  console.log(req.session.currentUser.username)
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
       console.log(foundUser)
         Post.create(req.body, (err, createdPost)=>{
