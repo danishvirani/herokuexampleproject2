@@ -37,10 +37,12 @@ router.get('/new', (req, res)=>{
 router.post('/', (req, res)=>{
     User.find({username: req.session.currentUser}, (err, foundUser)=>{
         Post.create(req.body, (err, createdPost)=>{
-            foundUser.posts.push(createdPost)
-            foundUser.save((err, data)=>{
+          console.log(createdPost)
+          console.log(foundUser)
+            // foundUser.posts.push(createdPost)
+            // foundUser.save((err, data)=>{
                 res.redirect('/main')
-            })
+            // })
         })
     })
 })
