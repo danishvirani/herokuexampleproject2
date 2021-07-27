@@ -24,27 +24,30 @@
             </div>
             <div class='card-body'>
               <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='150em' height='150em'>
-            </div>
-            <div class='card-footer'>
+
+
               <b>Author:</b> <%=posts[i].author%> <br/>
               <b>Description:</b> <%=posts[i].description%><br/>
 
+              </div>
+
+              <div class='card-footer'>
               <b>Tags:</b>
                 <p>
                   <% if (posts[i].creativity === true) { %>
-                    <span class="badge badge-info">Creativity</span>
+                    <a href="#" class="badge badge-info">Creativity</a>
                   <% } %>
                   <% if (posts[i].lifestyle === true) { %>
-                    <span class="badge badge-info">Lifestyle</span>
+                    <a href="#" class="badge badge-info">Lifestyle</a>
                   <% } %>
                   <% if (posts[i].nature === true) { %>
-                    <span class="badge badge-info">Nature</span>
+                    <a href="#" class="badge badge-info">Nature</a>
                   <% } %>
                   <% if (posts[i].adventure === true) { %>
-                    <span class="badge badge-info">Adventure</span>
+                    <a href="#" class="badge badge-info">Adventure</a>
                   <% } %>
                   <% if (posts[i].travel === true) { %>
-                    <span class="badge badge-info">Travel</span>
+                    <a href="#" class="badge badge-info">Travel</a>
                   <% } %>
 
                 </p>

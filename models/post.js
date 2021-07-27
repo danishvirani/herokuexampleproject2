@@ -20,7 +20,7 @@ const postSchema = new Schema(
     nature: {type: Boolean},
     adventure: {type: Boolean},
     travel: {type: Boolean},
-  }
+  }, { timestamps: true }
 )
 
 const Post = mongoose.model('Post', postSchema)
