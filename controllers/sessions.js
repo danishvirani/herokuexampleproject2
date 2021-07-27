@@ -25,17 +25,17 @@ sessions.post('/', (req, res) => {
     console.log(foundUser)
     if (err) {
       console.log(err)
-      alert('Sorry we encountered a problem, try again later')
+      message = 'Sorry we encountered a problem, try again later'
       res.redirect('/new/Sorry&we&encountered&a&problem&try%again&later')
     } else if (!foundUser) {
-      alert('Username not found')
+      message = 'Username not found'
       res.redirect('/new/Username&not&found')
     } else {
       if (bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser
-        res.redirect('/')
+        res.redirect('/main/')
       } else {
-        alert('The Password does not match our records')
+        message = 'The Password does not match our records'
         res.redirect('/new/The&Password&does&not&match&our&records')
       }
     }
