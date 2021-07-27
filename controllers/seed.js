@@ -34,3 +34,5 @@ seed.get('/setup', (req, res) => {
     }
   )
 })
+
+module.exports = seed
