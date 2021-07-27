@@ -38,6 +38,7 @@ router.post('/', (req, res)=>{
   console.log(req.session.currentUser.username)
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
       console.log(foundUser)
+        console.log(req.body)
         Post.create(req.body, (err, createdPost)=>{
           console.log(createdPost)
             // foundUser.posts.push(createdPost)
