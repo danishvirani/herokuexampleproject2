@@ -52,9 +52,12 @@
 
                 </p>
                 <br/><br/>
-                <% if (currentUser.username == posts[i].author) { %>
-                  <a href='/main/<%=posts[i].id%>/edit' class="btn btn-outline-dark">Edit</a>
-                <% } %>
+                <% if (currentUser) {
+                  if (currentUser.username == posts[i].author) { %>
+                    <a href='/main/<%=posts[i].id%>/edit' class="btn btn-outline-dark">Edit</a>
+                <% }
+                } %>
+                  
               </div>
           </div>
       <% } %>
