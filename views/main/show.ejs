@@ -57,7 +57,7 @@
               <form action='/main/<%=post.id%>/comment' method="POST" class="form-inline">
                 <div class='form-group'>
                   <label>New Comment: </label>
-                  <textarea name="description" class="form-control"></textarea>
+                  <textarea name="comment" class="form-control"></textarea>
                 </div>
                 <input type="hidden" name="author" value='<%= currentUser.username %>' />
                 <input type="submit" value="Comment"/>
