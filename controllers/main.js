@@ -103,12 +103,7 @@ router.post('/:id/comment', (req, res)=>{
           console.log(foundPost)
           Comment.create(req.body, (err, createdComment)=>{
             foundPost.comments.push(createdComment)
-            foundPost.save()
-            foundUser.posts.findOne({_id: req.params.id}, (err, foundUserPost)=>{
-              console.log(foundUserPost)
-              foundUserPost.comments.push(createdComment)
-            })
-            foundUser.save((err, data)=>{
+            foundPost.save((err, data)=>{
                 res.redirect('/main/'+req.params.id)
             })
           })
