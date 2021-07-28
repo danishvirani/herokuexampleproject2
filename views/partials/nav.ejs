@@ -11,9 +11,9 @@
     <% if (currentUser) { %>
 <!-- add profile image with menu function - also add default profile image for user -->
   <li class='nav-item text-white mr-1'>Welcome <%= currentUser.username %>   </li>
-  <li><img src='<%=currentUser.profilePicture%>' alt='profile picture' class='rounded-circle' height='30px' width='30px'/></li>
+  <li class='nav-item'><img src='<%=currentUser.profilePicture%>' alt='profile picture' class='rounded-circle' height='30px' width='30px'/></li>
   </ul>
-  <ul class="navbar-nav mr-auto ml-2">
+  <ul class="navbar-nav mr-auto">
   <li>
     <form action="/sessions?_method=DELETE" method="POST">
       <input type="submit" value="Log Out" class="nav-item btn btn-outline-danger" />
