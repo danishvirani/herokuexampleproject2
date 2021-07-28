@@ -86,6 +86,7 @@ router.post('/', (req, res)=>{
 router.put('/:id', (req, res)=>{
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost)=>{
       console.log(updatedPost)
+      console.log(req.body)
         // User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
         //   console.log(foundUser)
         //     foundUser.posts.id(req.params.id).remove()
