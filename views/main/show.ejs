@@ -52,7 +52,7 @@
 
           <p class="fw-bold">Comments:</p><br/><br/>
 
-          <%= if(currentUser){ %>
+          <% if(currentUser){ %>
             <div class='newForm'>
               <form action='/main/<%=post.id%>/comment' method="POST" class="form-inline">
                 <div class='form-group'>
