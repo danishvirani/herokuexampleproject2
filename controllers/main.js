@@ -75,6 +75,7 @@ router.post('/', (req, res)=>{
           req.body.travel = false
         }
         Post.create(req.body, (err, createdPost)=>{
+          console.log(createdPost)
             foundUser[0].posts.push(createdPost)
             foundUser[0].save((err, data)=>{
                 res.redirect('/main')
@@ -84,7 +85,7 @@ router.post('/', (req, res)=>{
 })
 
 router.put('/:id', (req, res)=>{
-    Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost)=>{
+    Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPost)=>{
       console.log(updatedPost)
       console.log(req.body)
         // User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
