@@ -23,10 +23,8 @@ const postSchema = new Schema(
     comments: [{body: String, date: Date}],
     date: { type: Date, default: Date.now },
     likes: {type: Number},
-  },
-  { timestamps: true },
-
-
+    timestamps: true
+  }
 )
 
 const Post = mongoose.model('Post', postSchema)

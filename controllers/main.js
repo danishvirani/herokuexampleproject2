@@ -76,7 +76,6 @@ router.post('/', (req, res)=>{
           req.body.travel = false
         }
         Post.create(req.body, (err, createdPost)=>{
-          console.log(createdPost)
             foundUser[0].posts.push(createdPost)
             foundUser[0].save((err, data)=>{
                 res.redirect('/main')
