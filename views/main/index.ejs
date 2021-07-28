@@ -20,10 +20,10 @@
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
-              </a>
+              </a><br/>
               <% if (currentUser) {
                 if (currentUser.username == posts[i].author) { %>
-                  <a href='/main/<%=posts[i].id%>/edit' class="badge badge-pill btn-outline-dark">Edit</a>
+                  <a href='/main/<%=posts[i].id%>/edit' class="badge badge-pill bg-outline-dark">Edit</a>
               <% }
               } %>
             </div>
