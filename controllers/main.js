@@ -36,8 +36,8 @@ router.get('/new', (req, res)=>{
 
 router.get('/:id/edit', (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
+    console.log(foundPost)
     res.render(
-      console.log(foundPost)
       'main/edit.ejs',
       {post:foundPost,
       tabTitle:'Edit Post',
