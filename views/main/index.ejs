@@ -21,6 +21,11 @@
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
               </a>
+              <% if (currentUser) {
+                if (currentUser.username == posts[i].author) { %>
+                  <a href='/main/<%=posts[i].id%>/edit' class="btn btn-outline-dark">Edit</a>
+              <% }
+              } %>
             </div>
             <div class='card-body'>
               <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='250em' height='250em'><br/><br/>
@@ -51,13 +56,9 @@
                   <% } %>
 
                 </p>
-                <br/><br/>
-                <% if (currentUser) {
-                  if (currentUser.username == posts[i].author) { %>
-                    <a href='/main/<%=posts[i].id%>/edit' class="btn btn-outline-dark">Edit</a>
-                <% }
-                } %>
-                  
+
+
+
               </div>
           </div>
       <% } %>
