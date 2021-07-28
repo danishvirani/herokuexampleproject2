@@ -34,11 +34,21 @@ router.get('/new', (req, res)=>{
     })
 })
 
+router.get('/:id/edit', (req, res) => {
+  Post.findById(req.params.id, (error, foundPost) => {
+    res.render(
+      'main/edit.ejs',
+      {post:foundPost,
+      tabTitle:'Edit Post',
+      currentUser: req.session.currentUser}
+    )
+  })
+})
+
 router.post('/', (req, res)=>{
   console.log(req.session.currentUser.username)
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
-      console.log(foundUser)
-        console.log(req.body)
+
         if(req.body.creativity === 'on') {
           req.body.creativity = true
         } else {
@@ -65,11 +75,21 @@ router.post('/', (req, res)=>{
           req.body.travel = false
         }
         Post.create(req.body, (err, createdPost)=>{
-          console.log(createdPost)
-          console.log(foundUser[0])
             foundUser[0].posts.push(createdPost)
             foundUser[0].save((err, data)=>{
                 res.redirect('/main')
+            })
+        })
+    })
+})
+
+router.put('/:id', (req, res)=>{
+    Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost)=>{
+        User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
+            foundUser.post.id(req.params.id).remove()
+            foundUser.post.push(updatedPost)
+            foundUser.save((err, data)=>{
+                res.redirect('/main/'+req.params.id)
             })
         })
     })
