@@ -16,7 +16,7 @@ const userSchema = new Schema(
       validate: [isStrongPassword, 'Please Enter a Strong Password (Mininum 8 Characters - Atleast 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character (!@#$%&*)']
     },
     profilePicture: {
-      type: String
+      type: String, default: 'https://i.imgur.com/4WwApRO.jpg'
     },
 
       creativity: {type: Boolean},

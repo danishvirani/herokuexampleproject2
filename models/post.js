@@ -7,7 +7,7 @@ const postSchema = new Schema(
       type: String, required: true
     },
     picture: {
-      type: String
+      type: String, default: 'https://i.imgur.com/4WwApRO.jpg'
     },
     description: {
       type: String
