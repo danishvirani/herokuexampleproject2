@@ -86,13 +86,13 @@ router.post('/', (req, res)=>{
 router.put('/:id', (req, res)=>{
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost)=>{
       console.log(updatedPost)
-        User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
-          console.log(foundUser)
-            foundUser.posts.id(req.params.id).remove()
-            foundUser.posts.push(updatedPost)
-            foundUser.save((err, data)=>{
-                res.redirect('/main/')
-            })
-        })
+        // User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
+        //   console.log(foundUser)
+        //     foundUser.posts.id(req.params.id).remove()
+        //     foundUser.posts.push(updatedPost)
+        //     foundUser.save((err, data)=>{
+        //         res.redirect('/main/')
+        //     })
+        // })
     })
 })
