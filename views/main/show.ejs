@@ -52,6 +52,15 @@
 
           <p class="fw-bold">Comments:</p><br/><br/>
 
+          <div class="h-50 overflow-scroll">
+            <% for(let i = 0; i < comments.length; i++) { %>
+              <div>
+              <%=comments[i].comment%><br/>
+              By: <%=comments[i].author%>
+            </div><br/>
+            <% } %>
+          </div><br/>
+
           <% if(currentUser){ %>
             <div class='newForm'>
               <form action='/main/<%=post.id%>/comment' method="POST" class="form-inline">

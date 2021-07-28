@@ -53,13 +53,13 @@ router.get('/:id', (req, res) => {
       'main/show.ejs',
       {post:foundPost,
       tabTitle:'View Post',
-      currentUser: req.session.currentUser}
+      currentUser: req.session.currentUser,
+      comments:foundPost.comments}
     )
   })
 })
 
 router.post('/', (req, res)=>{
-  console.log(req.session.currentUser.username)
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
 
         if(req.body.creativity === 'on') {
@@ -98,12 +98,8 @@ router.post('/', (req, res)=>{
 
 router.post('/:id/comment', (req, res)=>{
     User.findOne({'posts._id' : req.params.id}, (err, foundUser)=>{
-      console.log(foundUser)
         Post.findOne({_id: req.params.id}, (err, foundPost)=>{
-          console.log(foundPost)
           Comment.create(req.body, (err, createdComment)=>{
-            console.log(req.body)
-            console.log(createdComment)
             foundPost.comments.push(createdComment)
             foundPost.save((err, data)=>{
                 res.redirect('/main/'+req.params.id)
