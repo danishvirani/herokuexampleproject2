@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Post = require('../models/post.js')
 const User = require('../models/users.js')
+const Comment = require('../models/comments.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -46,6 +47,17 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
+router.get('/:id', (req, res) => {
+  Post.findById(req.params.id, (error, foundPost) => {
+    res.render(
+      'main/show.ejs',
+      {post:foundPost,
+      tabTitle:'View Post',
+      currentUser: req.session.currentUser}
+    )
+  })
+})
+
 router.post('/', (req, res)=>{
   console.log(req.session.currentUser.username)
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
@@ -84,6 +96,23 @@ router.post('/', (req, res)=>{
     })
 })
 
+router.post('/:id/comment', (req, res)=>{
+    User.findOne({'posts._id' : req.params.id}, (err, foundUser)=>{
+      console.log(foundUser)
+        Post.find({id: req.params.id}, (err, foundPost)=>{
+          console.log(foundPost)
+          Comment.create(req.body, (err, createdComment)=>{
+            foundPost[0].comments.push(createdComment)
+            foundPost.save()
+            foundUser[0].posts.comments.push(createdComment)
+            foundUser[0].save((err, data)=>{
+                res.redirect('/main/'+req.params.id)
+            })
+          })
+        })
+    })
+})
+
 router.put('/:id', (req, res)=>{
   if(req.body.creativity === 'on') {
     req.body.creativity = true
@@ -111,11 +140,7 @@ router.put('/:id', (req, res)=>{
     req.body.travel = false
   }
     Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPost)=>{
-      console.log(updatedPost)
-      console.log(req.body)
-      console.log(req.params.id)
         User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
-          console.log(foundUser)
             foundUser.posts.id(req.params.id).remove()
             foundUser.posts.push(updatedPost)
             foundUser.save((err, data)=>{

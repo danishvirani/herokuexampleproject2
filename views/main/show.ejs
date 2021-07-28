@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <%- include ('../partials/head.ejs') %>
+
+  </head>
+  <body>
+    <!-- -------------- Banner & Nav --------------- -->
+
+    <%- include ('../partials/hero.ejs') %>
+    <%- include ('../partials/nav.ejs') %>
+
+
+    <!-- ------------------ Main -------------------- -->
+
+    <div class="container text-center">
+      <div class='card'>
+        <div class='card-header'>
+          <%=post.title%>
+        </div>
+
+        <div class='card-body'>
+
+            <img src="<%=post.picture%>" alt="<%=post.title%>" /><br/><br/>
+            <p class="fw-bold">Author:</p> <%=post.author%> <br/><br/>
+            <p class="fw-bold">Description:</p> <%=post.description%><br/><br/>
+            <p class="fw-bold">Tags:</p><br/>
+
+            <p>
+              <% if (post.creativity === true) { %>
+                <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+              <% } %>
+              <% if (post.lifestyle === true) { %>
+                <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+              <% } %>
+              <% if (post.nature === true) { %>
+                <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+              <% } %>
+              <% if (post.adventure === true) { %>
+                <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+              <% } %>
+              <% if (post.travel === true) { %>
+                <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+              <% } %>
+
+            </p>
+
+        </div>
+
+        <div class='card-footer'>
+
+          <p class="fw-bold">Comments:</p><br/><br/>
+
+          <%= if(currentUser){ %>
+            <div class='newForm'>
+              <form action='/main/<%=post.id%>/comment' method="POST" class="form-inline">
+                <div class='form-group'>
+                  <label>New Comment: </label>
+                  <textarea name="description" class="form-control"></textarea>
+                </div>
+                <input type="hidden" name="author" value='<%= currentUser.username %>' />
+                <input type="submit" value="Comment"/>
+              </form>
+            </div>
+          <% } %>
+
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
