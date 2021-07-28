@@ -99,7 +99,7 @@ router.post('/', (req, res)=>{
 router.post('/:id/comment', (req, res)=>{
     User.findOne({'posts._id' : req.params.id}, (err, foundUser)=>{
       console.log(foundUser)
-        Post.find({id: req.params.id}, (err, foundPost)=>{
+        Post.findOne({id: req.params.id}, (err, foundPost)=>{
           console.log(foundPost)
           Comment.create(req.body, (err, createdComment)=>{
             foundPost[0].comments.push(createdComment)
