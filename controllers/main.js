@@ -86,16 +86,41 @@ router.post('/', (req, res)=>{
 
 router.put('/:id', (req, res)=>{
     Post.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPost)=>{
+      if(req.body.creativity === 'on') {
+        req.body.creativity = true
+      } else {
+        req.body.creativity = false
+      }
+      if(req.body.lifestyle === 'on') {
+        req.body.lifestyle = true
+      } else {
+        req.body.lifestyle = false
+      }
+      if(req.body.nature === 'on') {
+        req.body.nature = true
+      } else {
+        req.body.nature = false
+      }
+      if(req.body.adventure === 'on') {
+        req.body.adventure = true
+      } else {
+        req.body.adventure = false
+      }
+      if(req.body.travel === 'on') {
+        req.body.travel = true
+      } else {
+        req.body.travel = false
+      }
       console.log(updatedPost)
       console.log(req.body)
       console.log(req.params.id)
-        // User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
-        //   console.log(foundUser)
-        //     foundUser.posts.id(req.params.id).remove()
-        //     foundUser.posts.push(updatedPost)
-        //     foundUser.save((err, data)=>{
-        //         res.redirect('/main/')
-        //     })
-        // })
+        User.findOne({ 'posts._id' : req.params.id }, (err, foundUser)=>{
+          console.log(foundUser)
+            foundUser.posts.id(req.params.id).remove()
+            foundUser.posts.push(updatedPost)
+            foundUser.save((err, data)=>{
+                res.redirect('/main/')
+            })
+        })
     })
 })
