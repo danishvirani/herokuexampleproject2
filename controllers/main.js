@@ -89,7 +89,7 @@ router.put('/:id', (req, res)=>{
             foundUser.posts.id(req.params.id).remove()
             foundUser.posts.push(updatedPost)
             foundUser.save((err, data)=>{
-                res.redirect('/main/'+req.params.id)
+                res.redirect('/main/')
             })
         })
     })
