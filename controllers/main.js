@@ -157,7 +157,7 @@ router.put('/:id', (req, res)=>{
     })
 })
 
-router.delete(':/id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Post.findByIdAndRemove(req.params.id, (err, foundPost)=>{
     User.findOne({'posts._id':req.params.id}, (error, foundUser)=>{
       foundUser.posts.id(req.params.id).remove()
