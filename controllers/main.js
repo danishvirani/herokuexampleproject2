@@ -35,6 +35,17 @@ router.get('/new', (req, res)=>{
     })
 })
 
+router.get('/userposts', (req, res)=>{
+  User.findOne({username: req.session.currentUser.username}, (err, foundUser)=>{
+    res.render(
+      'main/userposts.ejs',
+      {posts:foundUser.posts,
+      tabTitle: 'Your Posts'
+      currentUser: req.session.currentUser
+    })
+  })
+})
+
 router.get('/:id/edit', (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
     console.log(foundPost)
