@@ -25,7 +25,7 @@
                 if (currentUser.username == posts[i].author) { %>
                   <a href='/main/<%=posts[i].id%>/edit' class="badge badge-pill bg-dark">Edit</a>
                   <form action="/main/<%=posts[i].id%>?_method=DELETE" method="POST">
-                  <input type="submit" value="DELETE" class='badge badge-pill bg-danger'>
+                  <input type="submit" value="DELETE" class='badge badge-pill bg-dark'>
                   </form>
               <% }
               } %>
