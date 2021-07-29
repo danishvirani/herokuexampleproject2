@@ -53,6 +53,8 @@ const isAuthenticated = (req, res, next) => {
     res.redirect('/sessions/new')
   }
 }
+
+import 'bootstrap';
 // Controlers -----------------------------
 // Controllers
 const mainController = require('./controllers/main.js')
