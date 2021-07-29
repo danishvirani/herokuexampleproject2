@@ -27,7 +27,11 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="/users/edit">Edit Profile</a></li>
-        <li><a class="dropdown-item" href="#">Log Out</a></li>
+        <li>
+          <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out" class="dropdown-item" />
+          </form>
+        </li>
       </ul>
     </div>
 
