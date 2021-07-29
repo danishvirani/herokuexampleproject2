@@ -23,12 +23,12 @@
 
         <form action="/users/<%=user.id%>?_method=PUT" method="POST" class="form-inline">
 
-          <img src='<%=currentUser.profilePicture%>' alt='profile picture' class='rounded-circle'/>
+          <img src='<%=currentUser.profilePicture%>' alt='profile picture' class='rounded-circle w-50'/>
 
           <div class='form-group'>
 
             <label>Profile Picture:</label>
-            <input type="text" name='profilePicture' class="form-control" value='user.profilePicture'/>
+            <input type="text" name='profilePicture' class="form-control" value='<%=user.profilePicture%>'/>
           </div><br/>
           <div class='form-check'>
 
