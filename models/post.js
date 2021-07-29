@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const Comment = require('./comments.js')
+const Like = require('./likes.js')
 
 const postSchema = new Schema(
   {
@@ -23,7 +24,7 @@ const postSchema = new Schema(
     travel: {type: Boolean},
     comments: [Comment.schema],
     date: { type: Date, default: Date.now },
-    likes: {type: Number},
+    likes: [Like.schema],
   }
 )
 

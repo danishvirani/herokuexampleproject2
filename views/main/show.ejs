@@ -50,6 +50,20 @@
 
         <div class='card-footer'>
 
+          <% for (let j = 0; j < posts.likes.length; j++){
+            if (currentUser.username == post.likes[i]){ %>
+              <form action="/main/<%=post.id%>/dislike/<%=currentUser.username%>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Like</span></button>
+              </form>
+          <% } else { %>
+            <form class="" action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="post">
+              <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Unlike</span></button>
+            </form>
+          <% } %>
+        <% } %>
+
+        <p>Likes: <%=posts.likes.length%></p>
+
           <p class="fw-bold">Comments:</p><br/><br/>
 
           <div class="h-50 overflow-scroll">

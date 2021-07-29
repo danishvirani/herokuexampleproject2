@@ -3,6 +3,7 @@ const router = express.Router()
 const Post = require('../models/post.js')
 const User = require('../models/users.js')
 const Comment = require('../models/comments.js')
+const Like = require('../models/likes.js')
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -165,5 +166,25 @@ router.delete('/:id', (req, res) => {
         res.redirect('/main')
       })
     })
+  })
+})
+
+router.post('/:id/like/:currentUser', (req, res) => {
+  Post.findOne({_id: req.params.id}, (err, foundPost)=>{
+    Like.create(req.params.currentUser, (err, createdLike)=>{
+      foundPost.likes.push(createdLike)
+      foundPost.save((err, data)=>{
+          res.redirect('/main/'+req.params.id)
+      })
+    })
+  })
+})
+
+router.delete('/:id/dislike/:currentUser', (req, res) => {
+  Post.findOne(req.params.id, (err, foundPost)=>{
+      foundPost.likes.name(req.params.currentUser).remove()
+      foundPost.save((error, data)=>{
+        res.redirect('/main')
+      })
   })
 })
