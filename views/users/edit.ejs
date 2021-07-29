@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+  <!-- -------------- Banner & Nav --------------- -->
+
+  <%- include ('../partials/hero.ejs') %>
+  <%- include ('../partials/nav.ejs') %>
+
+
+<!-- ------------------ Main -------------------- -->
+
+  <div class="card newForm">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3>Update Profile</h3>
+      </div>
+      <div class="card-body">
+        <form action="/users/<%=user.id%>?_method=PUT" method="POST" class="form-inline">
+
+          <div class='form-group'>
+
+            <label>Profile Picture:</label>
+            <input type="text" name='profilePicture' class="form-control" value='https://i.imgur.com/pIYMngN.png' />
+          </div><br/>
+          <div class='form-check'>
+
+            <div class='text-center'>
+              <label>Interests:</label><br/><br/>
+            </div>
+
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Creativity:</label>
+              <input type='checkbox' name='creativity' class="form-check-input" id="flexSwitchCheckDefault"
+
+              <% if(user.creativity){ %>
+                checked
+              <% } %>
+              />
+            </div>
+
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Lifestyle:</label>
+              <input type='checkbox' name='lifestyle' class="form-check-input" id="flexSwitchCheckDefault"
+
+              <% if(user.lifestyle){ %>
+                checked
+              <% } %>
+              />
+            </div>
+
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Nature:</label>
+              <input type='checkbox' name='nature' class="form-check-input" id="flexSwitchCheckDefault"
+
+              <% if(user.nature){ %>
+                checked
+              <% } %>
+              />
+            </div>
+
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Adventure:</label>
+              <input type='checkbox' name='adventure' class="form-check-input" id="flexSwitchCheckDefault"
+
+              <% if(user.adventure){ %>
+                checked
+              <% } %>
+              />
+            </div>
+
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Travel:</label>
+              <input type='checkbox' name='travel' class="form-check-input" id="flexSwitchCheckDefault"
+
+              <% if(user.travel){ %>
+                checked
+              <% } %>
+              />
+            </div>
+
+          </div>
+
+          <br><br/><br/>
+          <input type="submit" value="Update" class="btn btn-outline-dark">
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

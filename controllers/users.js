@@ -53,4 +53,48 @@ users.post('/', (req, res) => {
   })
 })
 
+
+users.get('/edit', (req, res) =>{
+  User.findOne({username: req.session.currentUser.username}, (err, foundUser)=>{
+    res.render(
+      'users/edit.ejs',
+      {tabTitle: 'Edit Profile',
+      currentUser: req.session.currentUser,
+      user:foundUser
+    })
+  })
+})
+
+
+users.put('/:id', (req, res) => {
+  if(req.body.creativity === 'on') {
+    req.body.creativity = true
+  } else {
+    req.body.creativity = false
+  }
+  if(req.body.lifestyle === 'on') {
+    req.body.lifestyle = true
+  } else {
+    req.body.lifestyle = false
+  }
+  if(req.body.nature === 'on') {
+    req.body.nature = true
+  } else {
+    req.body.nature = false
+  }
+  if(req.body.adventure === 'on') {
+    req.body.adventure = true
+  } else {
+    req.body.adventure = false
+  }
+  if(req.body.travel === 'on') {
+    req.body.travel = true
+  } else {
+    req.body.travel = false
+  }
+  User.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedUser)=>{
+    res.redirect('/main')
+  })
+})
+
 module.exports = users
