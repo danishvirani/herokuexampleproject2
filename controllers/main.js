@@ -40,7 +40,7 @@ router.get('/userposts', (req, res)=>{
     res.render(
       'main/userposts.ejs',
       {posts:foundUser.posts,
-      tabTitle: 'Your Posts'
+      tabTitle: 'Your Posts',
       currentUser: req.session.currentUser
     })
   })
