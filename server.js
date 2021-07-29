@@ -54,7 +54,6 @@ const isAuthenticated = (req, res, next) => {
   }
 }
 
-import 'bootstrap';
 // Controlers -----------------------------
 // Controllers
 const mainController = require('./controllers/main.js')
