@@ -180,7 +180,7 @@ router.post('/:id/like/:user', (req, res) => {
 })
 
 router.delete('/:id/dislike/:currentUser', (req, res) => {
-  Post.findOne(req.params.id, (err, foundPost)=>{
+  Post.findOne({_id: req.params.id}, (err, foundPost)=>{
     console.log(foundPost)
     console.log(foundPost.likes)
     console.log(foundPost.likes.name)
