@@ -65,7 +65,7 @@ router.get('/filter/:filter', (req, res)=>{
     console.log(foundPosts)
     res.render(
       'main/index.ejs',
-      {posts:allPosts,
+      {posts:foundPosts,
       tabTitle: req.params.filter+' Posts',
       currentUser: req.session.currentUser
     })
