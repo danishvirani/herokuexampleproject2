@@ -50,7 +50,7 @@ router.get('/userposts', (req, res)=>{
 router.get('/curated', (req, res)=>{
   Post.find({}, (error, allPosts) => {
     res.render(
-      'main/curatedlist.ejs',
+      'main/index.ejs',
       {posts:allPosts,
       tabTitle: 'Suggested Posts',
       currentUser: req.session.currentUser
