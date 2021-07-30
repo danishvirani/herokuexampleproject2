@@ -180,7 +180,7 @@ router.post('/:id/like/:user', (req, res) => {
 })
 
 router.delete('/:id/dislike/:user', (req, res) => {
-  Post.update({_id: req.params.id}, { '$pull': { 'likes': { 'name': req.params.user} }} { safe: true, multi:true }, (err, obj) => {
+  Post.update({ _id: req.params.id }, { '$pull': { 'likes': { 'name': req.params.user } }}, { safe: true, multi:true }, (err, obj) => {
       res.redirect('/main/'+req.params.id)
     })
 })
