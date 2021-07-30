@@ -37,10 +37,10 @@ router.get('/new', (req, res)=>{
 })
 
 router.get('/userposts', (req, res)=>{
-  User.findOne({username: req.session.currentUser.username}, (err, foundUser)=>{
+  Post.find({author: req.session.currentUser.username}, (err, foundPosts)=>{
     res.render(
-      'main/userposts.ejs',
-      {posts:foundUser.posts,
+      'main/index.ejs',
+      {posts:foundPosts,
       tabTitle: 'Your Posts',
       currentUser: req.session.currentUser
     })
@@ -62,7 +62,7 @@ router.get('/filter/:filter', (req, res)=>{
   searchFilter = req.params.filter
   Post.find({searchFilter: true}, {multi:true}, (error, allPosts) => {
     res.render(
-      'main/filter.ejs',
+      'main/index.ejs',
       {posts:allPosts,
       tabTitle: 'Suggested Posts',
       currentUser: req.session.currentUser
