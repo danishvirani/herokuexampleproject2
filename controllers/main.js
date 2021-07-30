@@ -184,7 +184,7 @@ router.delete('/:id/dislike/:currentUser', (req, res) => {
   Post.findOne(req.params.id, (err, foundPost)=>{
       foundPost.likes.name(req.params.currentUser).remove()
       foundPost.save((error, data)=>{
-        res.redirect('/main')
+        res.redirect('/main/'+req.params.id)
       })
   })
 })
