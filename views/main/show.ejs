@@ -53,11 +53,11 @@
           <% for (let j = 0; j < post.likes.length; j++){
             if (currentUser.username == post.likes[i]){ %>
               <form action="/main/<%=post.id%>/dislike/<%=currentUser.username%>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Like</span></button>
+                <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Unlike</span></button>
               </form>
           <% } else { %>
-            <form class="" action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="post">
-              <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Unlike</span></button>
+            <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
+              <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Like</span></button>
             </form>
           <% } %>
         <% } %>
