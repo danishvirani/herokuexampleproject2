@@ -59,16 +59,52 @@ router.get('/curated', (req, res)=>{
 })
 
 router.get('/filter/:filter', (req, res)=>{
-  Post.find({ "req.params.filter": 'true' }, (error, foundPosts) => {
-    console.log(req.params.filter)
-    console.log(foundPosts)
-    res.render(
-      'main/index.ejs',
-      {posts:foundPosts,
-      tabTitle: req.params.filter+' Posts',
-      currentUser: req.session.currentUser
+  if (req.params.filter = 'creativity'){
+    Post.find({ "creativity": true }, (error, foundPosts) => {
+      res.render(
+        'main/index.ejs',
+        {posts:foundPosts,
+        tabTitle: req.params.filter+' Posts',
+        currentUser: req.session.currentUser
+      })
     })
-  })
+  } else if (req.params.filter = 'lifestyle'){
+    Post.find({ "lifestyle": true }, (error, foundPosts) => {
+      res.render(
+        'main/index.ejs',
+        {posts:foundPosts,
+        tabTitle: req.params.filter+' Posts',
+        currentUser: req.session.currentUser
+      })
+    })
+  } else if (req.params.filter = 'nature'){
+    Post.find({ "nature": true }, (error, foundPosts) => {
+      res.render(
+        'main/index.ejs',
+        {posts:foundPosts,
+        tabTitle: req.params.filter+' Posts',
+        currentUser: req.session.currentUser
+      })
+    })
+  } else if (req.params.filter = 'adventure'){
+    Post.find({ "adventure": true }, (error, foundPosts) => {
+      res.render(
+        'main/index.ejs',
+        {posts:foundPosts,
+        tabTitle: req.params.filter+' Posts',
+        currentUser: req.session.currentUser
+      })
+    })
+  } else if (req.params.filter = 'travel'){
+    Post.find({ "travel": true }, (error, foundPosts) => {
+      res.render(
+        'main/index.ejs',
+        {posts:foundPosts,
+        tabTitle: req.params.filter+' Posts',
+        currentUser: req.session.currentUser
+      })
+    })
+  }
 })
 
 router.get('/:id/edit', (req, res) => {
