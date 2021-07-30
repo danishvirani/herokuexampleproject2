@@ -15,11 +15,12 @@
     <!-- ------------------ Main -------------------- -->
 
     <div class="container">
-      <div class='card text-center col-lg-5 mb-4 mx-auto'>
+
 
       <% if(currentUser.creativity === true){
         for(let i = 0; i < posts.length; i++) {
           if (posts[i].creativity === true){ %>
+            <div class='card text-center col-lg-5 mb-4 mx-auto'>
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
@@ -60,11 +61,10 @@
                 </p>
 
               </div>
-            </div>
+              </div>
          <% } %>
         <% } %>
       <% } %>
-
 
 
       <% if(currentUser.lifestyle === true){
@@ -263,7 +263,7 @@
         <% } %>
       <% } %>
 
-    
+
     </div>
 
   </body>
