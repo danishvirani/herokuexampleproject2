@@ -51,8 +51,8 @@
         <div class='card-footer'>
         <% if (post.likes.length == 0) { %>
           <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
-            
-            <button type="submit" style="background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
+
+            <button type="submit" style="width:60px;height:30px;background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
 
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                 <%=post.likes.length%>
@@ -68,7 +68,7 @@
              </form>
          <% } else { %>
            <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
-             <button type="submit" style="background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
+             <button type="submit" style="width:60px;height:30px;background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
 
                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                  <%=post.likes.length%>
