@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <%- include ('../partials/head.ejs') %>
+
+  </head>
+  <body>
+    <!-- -------------- Banner & Nav --------------- -->
+
+    <%- include ('../partials/hero.ejs') %>
+    <%- include ('../partials/nav.ejs') %>
+
+
+    <!-- ------------------ Main -------------------- -->
+
+    <div class="container">
+      <div class='card text-center col-lg-5 mb-4 mx-auto'>
+
+      <% if(currentUser.creativity === true){
+        for(let i = 0; i < posts.length; i++) {
+          if (post[i].creativity === true){ %>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a><br/>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='350em' height='250em'><br/><br/>
+
+
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
+
+              </div>
+
+              <div class='card-footer'>
+              <p class="fw-bold">Tags:</p>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+                  <% } %>
+
+                </p><br/>
+
+                <p>Likes:
+                  <%=posts[i].likes.length%>
+                </p>
+
+              </div>
+         <% } %>
+        <% } %>
+      <% } %>
+
+      <% if(currentUser.lifestyle === true){
+        for(let i = 0; i < posts.length; i++) {
+          if (post[i].lifestyle === true && post[i].creativity !== true){ %>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a><br/>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='350em' height='250em'><br/><br/>
+
+
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
+
+              </div>
+
+              <div class='card-footer'>
+              <p class="fw-bold">Tags:</p>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+                  <% } %>
+
+                </p><br/>
+
+                <p>Likes:
+                  <%=posts[i].likes.length%>
+                </p>
+
+              </div>
+         <% } %>
+        <% } %>
+      <% } %>
+
+      <% if(currentUser.nature === true){
+        for(let i = 0; i < posts.length; i++) {
+          if (post[i].nature === true && post[i].creativity !== true && post[i].lifestyle !== true ){ %>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a><br/>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='350em' height='250em'><br/><br/>
+
+
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
+
+              </div>
+
+              <div class='card-footer'>
+              <p class="fw-bold">Tags:</p>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+                  <% } %>
+
+                </p><br/>
+
+                <p>Likes:
+                  <%=posts[i].likes.length%>
+                </p>
+
+              </div>
+         <% } %>
+        <% } %>
+      <% } %>
+
+      <% if(currentUser.adventure === true){
+        for(let i = 0; i < posts.length; i++) {
+          if (post[i].adventure === true && post[i].creativity !== true && post[i].lifestyle !== true && post[i].nature !== true ){ %>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a><br/>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='350em' height='250em'><br/><br/>
+
+
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
+
+              </div>
+
+              <div class='card-footer'>
+              <p class="fw-bold">Tags:</p>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+                  <% } %>
+
+                </p><br/>
+
+                <p>Likes:
+                  <%=posts[i].likes.length%>
+                </p>
+
+              </div>
+         <% } %>
+        <% } %>
+      <% } %>
+
+      <% if(currentUser.travel === true){
+        for(let i = 0; i < posts.length; i++) {
+          if (post[i].adventure === true && post[i].creativity !== true && post[i].lifestyle !== true && post[i].nature !== true && post[i].adventure !== true ){ %>
+            <div class='card-header'>
+              <a href="/main/<%=posts[i]._id%>">
+                <%=posts[i].title%>
+              </a><br/>
+            </div>
+            <div class='card-body'>
+              <img src="<%=posts[i].picture%>" alt="<%=posts[i].title%>" width='350em' height='250em'><br/><br/>
+
+
+              <p class="fw-bold">Author:</p> <%=posts[i].author%> <br/><br/>
+              <p class="fw-bold">Description:</p> <%=posts[i].description%><br/>
+
+              </div>
+
+              <div class='card-footer'>
+              <p class="fw-bold">Tags:</p>
+                <p>
+                  <% if (posts[i].creativity === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Creativity</a>
+                  <% } %>
+                  <% if (posts[i].lifestyle === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Lifestyle</a>
+                  <% } %>
+                  <% if (posts[i].nature === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Nature</a>
+                  <% } %>
+                  <% if (posts[i].adventure === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Adventure</a>
+                  <% } %>
+                  <% if (posts[i].travel === true) { %>
+                    <a href="#" class="badge badge-pill bg-secondary">Travel</a>
+                  <% } %>
+
+                </p><br/>
+
+                <p>Likes:
+                  <%=posts[i].likes.length%>
+                </p>
+
+              </div>
+         <% } %>
+        <% } %>
+      <% } %>
+
+      </div>
+    </div>
+
+  </body>
+</html>
