@@ -58,49 +58,49 @@ router.get('/curated', (req, res)=>{
   })
 })
 
-router.get('/filter/:filter', (req, res)=>{
-  if (req.params.filter = 'creativity'){
+router.get('/filter/:search', (req, res)=>{
+  if (req.params.search = 'creativity'){
     Post.find({ "creativity": true }, (error, foundPosts) => {
       res.render(
         'main/index.ejs',
         {posts:foundPosts,
-        tabTitle: req.params.filter+' Posts',
+        tabTitle: req.params.search+' Posts',
         currentUser: req.session.currentUser
       })
     })
-  } else if (req.params.filter = 'lifestyle'){
+  } else if (req.params.search = 'lifestyle'){
     Post.find({ "lifestyle": true }, (error, foundPosts) => {
       res.render(
         'main/index.ejs',
         {posts:foundPosts,
-        tabTitle: req.params.filter+' Posts',
+        tabTitle: req.params.search+' Posts',
         currentUser: req.session.currentUser
       })
     })
-  } else if (req.params.filter = 'nature'){
+  } else if (req.params.search = 'nature'){
     Post.find({ "nature": true }, (error, foundPosts) => {
       res.render(
         'main/index.ejs',
         {posts:foundPosts,
-        tabTitle: req.params.filter+' Posts',
+        tabTitle: req.params.search+' Posts',
         currentUser: req.session.currentUser
       })
     })
-  } else if (req.params.filter = 'adventure'){
+  } else if (req.params.search = 'adventure'){
     Post.find({ "adventure": true }, (error, foundPosts) => {
       res.render(
         'main/index.ejs',
         {posts:foundPosts,
-        tabTitle: req.params.filter+' Posts',
+        tabTitle: req.params.search+' Posts',
         currentUser: req.session.currentUser
       })
     })
-  } else if (req.params.filter = 'travel'){
+  } else if (req.params.search = 'travel'){
     Post.find({ "travel": true }, (error, foundPosts) => {
       res.render(
         'main/index.ejs',
         {posts:foundPosts,
-        tabTitle: req.params.filter+' Posts',
+        tabTitle: req.params.search+' Posts',
         currentUser: req.session.currentUser
       })
     })
