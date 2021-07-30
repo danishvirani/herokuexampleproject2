@@ -51,7 +51,14 @@
         <div class='card-footer'>
         <% if (post.likes.length == 0) { %>
           <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
-            <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Like</span></button>
+            
+            <button type="submit" style="background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
+
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                <%=post.likes.length%>
+              </span>
+
+            </button>
           </form>
         <% } else { %>
           <% for (let i = 0; i < post.likes.length; i++){
