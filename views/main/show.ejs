@@ -55,7 +55,7 @@
           </form>
         <% } else { %>
           <% for (let i = 0; i < post.likes.length; i++){
-           if (currentUser.username == post.likes[i]){ %>
+           if (currentUser.username == post.likes[i].name){ %>
              <form action="/main/<%=post.id%>/dislike/<%=currentUser.username%>?_method=DELETE" method="POST">
                <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Unlike</span></button>
              </form>
