@@ -179,14 +179,8 @@ router.post('/:id/like/:user', (req, res) => {
   })
 })
 
-router.delete('/:id/dislike/:currentUser', (req, res) => {
-  Post.findOne({_id: req.params.id}, (err, foundPost)=>{
-    console.log(foundPost)
-    console.log(foundPost.likes)
-    console.log(foundPost.likes.name)
-      foundPost.likes.name(req.params.currentUser).remove()
-      foundPost.save((error, data)=>{
-        res.redirect('/main/'+req.params.id)
-      })
-  })
+router.delete('/:id/dislike/:user', (req, res) => {
+  Post.update({_id: req.params.id}, { '$pull': { 'likes': { 'name': req.params.user} }} { safe: true, multi:true }, (err, obj) => {
+      res.redirect('/main/'+req.params.id)
+    })
 })
