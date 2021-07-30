@@ -18,7 +18,9 @@ Challenges / Future Releases
 - use JQuery to dynamically show changes on screen without reload/redirect
 - create edit and delete routes for comments
 - fix filter route
-- create conditionals for password validation 
+- create conditionals for password validation
+- format data from timestamps of posts and comments to display time created
+- show user image on comment along with username.
 
 V 2.0 Goals
 
