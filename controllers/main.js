@@ -181,6 +181,9 @@ router.post('/:id/like/:user', (req, res) => {
 
 router.delete('/:id/dislike/:currentUser', (req, res) => {
   Post.findOne(req.params.id, (err, foundPost)=>{
+    console.log(foundPost)
+    console.log(foundPost.likes)
+    console.log(foundPost.likes.name)
       foundPost.likes.name(req.params.currentUser).remove()
       foundPost.save((error, data)=>{
         res.redirect('/main/'+req.params.id)
