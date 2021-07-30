@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/new', (req, res)=>{
+router.get('/new', isAuthenticated, (req, res)=>{
     User.find({}, (err, allUsers)=>{
         res.render('main/new.ejs', {
             users: allUsers,
@@ -36,7 +36,7 @@ router.get('/new', (req, res)=>{
     })
 })
 
-router.get('/userposts', (req, res)=>{
+router.get('/userposts', isAuthenticated, (req, res)=>{
   Post.find({author: req.session.currentUser.username}, (err, foundPosts)=>{
     res.render(
       'main/index.ejs',
@@ -47,7 +47,7 @@ router.get('/userposts', (req, res)=>{
   })
 })
 
-router.get('/curated', (req, res)=>{
+router.get('/curated', isAuthenticated, (req, res)=>{
   Post.find({}, (error, allPosts) => {
     res.render(
       'main/index.ejs',
@@ -58,7 +58,7 @@ router.get('/curated', (req, res)=>{
   })
 })
 
-router.get('/filter/:search', (req, res)=>{
+router.get('/filter/:search', isAuthenticated, (req, res)=>{
   if (req.params.search = 'creativity'){
     Post.find({ "creativity": true }, (error, foundPosts) => {
       res.render(
@@ -107,7 +107,7 @@ router.get('/filter/:search', (req, res)=>{
   }
 })
 
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isAuthenticated, (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
     console.log(foundPost)
     res.render(
@@ -131,7 +131,7 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.post('/', (req, res)=>{
+router.post('/', isAuthenticated, (req, res)=>{
     User.find({username: req.session.currentUser.username}, (err, foundUser)=>{
 
         if(req.body.creativity === 'on') {
@@ -169,7 +169,7 @@ router.post('/', (req, res)=>{
     })
 })
 
-router.post('/:id/comment', (req, res)=>{
+router.post('/:id/comment', isAuthenticated, (req, res)=>{
     User.findOne({'posts._id' : req.params.id}, (err, foundUser)=>{
         Post.findOne({_id: req.params.id}, (err, foundPost)=>{
           Comment.create(req.body, (err, createdComment)=>{
@@ -182,7 +182,7 @@ router.post('/:id/comment', (req, res)=>{
     })
 })
 
-router.put('/:id', (req, res)=>{
+router.put('/:id', isAuthenticated, (req, res)=>{
   if(req.body.creativity === 'on') {
     req.body.creativity = true
   } else {
@@ -219,7 +219,7 @@ router.put('/:id', (req, res)=>{
     })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isAuthenticated, (req, res) => {
   Post.findByIdAndRemove(req.params.id, (err, foundPost)=>{
     User.findOne({'posts._id':req.params.id}, (error, foundUser)=>{
       foundUser.posts.id(req.params.id).remove()
@@ -230,7 +230,7 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-router.post('/:id/like/:user', (req, res) => {
+router.post('/:id/like/:user', isAuthenticated, (req, res) => {
   Post.findOne({_id: req.params.id}, (err, foundPost)=>{
       foundPost.likes.push({name:req.params.user})
       foundPost.save((err, data)=>{
@@ -239,7 +239,7 @@ router.post('/:id/like/:user', (req, res) => {
   })
 })
 
-router.delete('/:id/dislike/:user', (req, res) => {
+router.delete('/:id/dislike/:user', isAuthenticated, (req, res) => {
   Post.update({ _id: req.params.id }, { '$pull': { 'likes': { 'name': req.params.user } }}, { safe: true, multi:true }, (err, obj) => {
       res.redirect('/main/'+req.params.id)
     })
