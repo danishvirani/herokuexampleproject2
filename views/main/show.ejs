@@ -52,9 +52,9 @@
         <% if (post.likes.length == 0) { %>
           <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
 
-            <button type="submit" style="width:60px;height:30px;background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
+            <button type="submit"class='position-relative'>Like
 
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                 <%=post.likes.length%>
               </span>
 
@@ -64,13 +64,20 @@
           <% for (let i = 0; i < post.likes.length; i++){
            if (currentUser.username == post.likes[i].name){ %>
              <form action="/main/<%=post.id%>/dislike/<%=currentUser.username%>?_method=DELETE" method="POST">
-               <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Unlike</span></button>
+
+               <button type="submit" class='position-relative'>Unlike
+
+                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                   <%=post.likes.length%>
+                 </span>
+
+               </button>
              </form>
          <% } else { %>
            <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
-             <button type="submit" style="width:60px;height:30px;background: url(https://i.imgur.com/8eA2ddz.png)" class='position-relative'>
+             <button type="submit" class='position-relative'>Like
 
-               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                  <%=post.likes.length%>
                </span>
 
@@ -80,8 +87,6 @@
        <% } %>
       <% } %>
 
-
-        <p>Likes: <%=post.likes.length%></p>
 
           <p class="fw-bold">Comments:</p><br/><br/>
 
