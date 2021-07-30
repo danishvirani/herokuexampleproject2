@@ -170,9 +170,11 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-router.post('/:id/like/:currentUser', (req, res) => {
+router.post('/:id/like/:user', (req, res) => {
   Post.findOne({_id: req.params.id}, (err, foundPost)=>{
-    Like.create(req.params.currentUser, (err, createdLike)=>{
+    Like.create(req.params.user, (err, createdLike)=>{
+      console.log(createdLike)
+      console.log(req.params.user)
       foundPost.likes.push(createdLike)
       foundPost.save((err, data)=>{
           res.redirect('/main/'+req.params.id)
