@@ -50,9 +50,9 @@
               <% if (post.likes.length == 0) { %>
                 <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
 
-                  <button type="submit"class='position-relative'>Like
+                  <button type="submit"class='position-relative class="btn btn-outline-primary"'>Like
 
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                       <%=post.likes.length%>
                     </span>
 
@@ -63,9 +63,9 @@
                  if (currentUser.username == post.likes[i].name){ %>
                    <form action="/main/<%=post.id%>/dislike/<%=currentUser.username%>?_method=DELETE" method="POST">
 
-                     <button type="submit" class='position-relative'>Unlike
+                     <button type="submit" class='position-relative class="btn btn-outline-primary"'>Unlike
 
-                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                          <%=post.likes.length%>
                        </span>
 
@@ -73,9 +73,9 @@
                    </form>
                <% } else { %>
                  <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
-                   <button type="submit" class='position-relative'>Like
+                   <button type="submit" class='position-relative class="btn btn-outline-primary"'>Like
 
-                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                        <%=post.likes.length%>
                      </span>
 
@@ -84,7 +84,7 @@
                <% } %>
              <% } %>
             <% } %>
-            
+
             </div>
 
         </div>
