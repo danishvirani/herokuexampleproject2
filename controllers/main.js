@@ -58,6 +58,17 @@ router.get('/curated', (req, res)=>{
   })
 })
 
+router.get('/filter/:filter', (req, res)=>{
+  Post.find({req.params.filter: true}, (error, allPosts) => {
+    res.render(
+      'main/filter.ejs',
+      {posts:allPosts,
+      tabTitle: 'Suggested Posts',
+      currentUser: req.session.currentUser
+    })
+  })
+})
+
 router.get('/:id/edit', (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
     console.log(foundPost)
