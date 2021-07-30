@@ -60,7 +60,7 @@ router.get('/curated', (req, res)=>{
 
 router.get('/filter/:filter', (req, res)=>{
   searchFilter = req.params.filter
-  Post.find({searchFilter: true}, (error, foundPosts) => {
+  Post.find({ "searchFilter": { "$in": ["true",true] } }, (error, foundPosts) => {
     console.log(searchFilter)
     console.log(foundPosts)
     res.render(
