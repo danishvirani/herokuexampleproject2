@@ -49,7 +49,7 @@
         </div>
 
         <div class='card-footer'>
-        <% if (post.likes.length < 1) { %>
+        <% if (post.likes.length == 0) { %>
           <form action="/main/<%=post.id%>/like/<%=currentUser.username%>" method="POST">
             <button type="submit" class="btn btn-link"><span class="badge badge-pill bg-danger">Like</span></button>
           </form>
