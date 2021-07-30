@@ -60,13 +60,17 @@
                 </p>
 
               </div>
+            </div>
          <% } %>
         <% } %>
       <% } %>
 
+
+
       <% if(currentUser.lifestyle === true){
         for(let i = 0; i < posts.length; i++) {
           if (posts[i].lifestyle === true && posts[i].creativity !== true){ %>
+            <div class='card text-center col-lg-5 mb-4 mx-auto'>
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
@@ -107,6 +111,7 @@
                 </p>
 
               </div>
+            </div>
          <% } %>
         <% } %>
       <% } %>
@@ -114,6 +119,7 @@
       <% if(currentUser.nature === true){
         for(let i = 0; i < posts.length; i++) {
           if (posts[i].nature === true && posts[i].creativity !== true && posts[i].lifestyle !== true ){ %>
+            <div class='card text-center col-lg-5 mb-4 mx-auto'>
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
@@ -154,6 +160,7 @@
                 </p>
 
               </div>
+            </div>
          <% } %>
         <% } %>
       <% } %>
@@ -161,6 +168,7 @@
       <% if(currentUser.adventure === true){
         for(let i = 0; i < posts.length; i++) {
           if (posts[i].adventure === true && posts[i].creativity !== true && posts[i].lifestyle !== true && posts[i].nature !== true ){ %>
+            <div class='card text-center col-lg-5 mb-4 mx-auto'>
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
@@ -201,6 +209,7 @@
                 </p>
 
               </div>
+            </div>
          <% } %>
         <% } %>
       <% } %>
@@ -208,6 +217,7 @@
       <% if(currentUser.travel === true){
         for(let i = 0; i < posts.length; i++) {
           if (posts[i].adventure === true && posts[i].creativity !== true && posts[i].lifestyle !== true && posts[i].nature !== true && posts[i].adventure !== true ){ %>
+            <div class='card text-center col-lg-5 mb-4 mx-auto'>
             <div class='card-header'>
               <a href="/main/<%=posts[i]._id%>">
                 <%=posts[i].title%>
@@ -248,11 +258,12 @@
                 </p>
 
               </div>
+            </div>
          <% } %>
         <% } %>
       <% } %>
 
-      </div>
+    
     </div>
 
   </body>
