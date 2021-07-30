@@ -119,7 +119,7 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
   })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isAuthenticated, (req, res) => {
   Post.findById(req.params.id, (error, foundPost) => {
     res.render(
       'main/show.ejs',
