@@ -11,17 +11,20 @@ V 1.0 - Users are able to:
 - filter post made by them and access to edit and delete post
 - users can like/unlike and comment on post - one-to-many relationship database relationships were used to increase functionality
 - curated list is provided to the user based on the interests provided during sign-up or upon editing profile
+- add conditionals to display error message on unsuccessful log ins
 
 Challenges / Future Releases
 
 - use JQuery to dynamically show changes on screen without reload/redirect
-- add location to post model and use geocoding and google MAPs APIs to dynamically show location of the post in modal
 - create edit and delete routes for comments
 - fix filter route
+- create conditionals for password validation 
 
 V 2.0 Goals
 
 - add input field to add additional tags / interests
+- add location to post model and use geocoding and google MAPs APIs to dynamically show location of the post in modal
+- create dynamic bucket list for each user
 
 Live Site Hosted on Heroku
 Link: https://shared-experiences-app.herokuapp.com/main
